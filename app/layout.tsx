@@ -1,11 +1,14 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Rubik } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+// components
+import Navbar from "./components/Navbar";
+
+const rubik = Rubik({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "MetaSky",
+  title: "Metasky",
   description: "Metasky user dashboard",
 };
 
@@ -16,7 +19,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={rubik.className}>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
