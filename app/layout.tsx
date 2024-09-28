@@ -9,8 +9,8 @@ const rajdhani = Rajdhani({
 });
 
 export const metadata: Metadata = {
-  title: "Metasky",
-  description: "Metasky user dashboard",
+  title: "User Dashboard | NodeOps",
+  description: "NodeOps user dashboard",
 };
 
 export default function RootLayout({

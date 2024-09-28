@@ -4,42 +4,38 @@ import React, { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 
 interface SearchBarProps {
-  onSearch: (searchTerm: string) => void;
+  onSearch: (searchTerm: any) => any;
 }
 
 const styles = {
   container: {
-    width: "400px",
-    border: "1px solid rgba(255, 255, 255, 0.05)",
-    borderRadius: "40px",
+    width: "100%",
+    border: "2px solid rgba(255, 255, 255, 0.05)",
+    borderRadius: "0.5rem",
     justifyContent: "space-between",
     alignItems: "center",
     padding: "0 8px",
+    flex: "1 1 0%",
   },
   searchField: {
     width: "100%",
     "& fieldset": {
       border: "none",
     },
-    "& input": { padding: "12px 12px" },
+    "& input": { padding: "9px 12px" },
   },
   searchBtn: {
+    borderRadius: "8px",
     color: "white",
-    backgroundImage: "linear-gradient(to bottom right, #7D76C6, #ACAAE1)",
-    filter: "hue-rotate(32deg)",
   },
 };
 
 const constants = {
-  searchField: "Search by First or Last name",
+  searchField: "Search by Email, Protocol or Event",
 };
 
 export default function SearchBar({ onSearch }: SearchBarProps) {
   const [searchTerm, setSearchTerm] = useState<string>("");
-
-  const handleSearch = () => {
-    onSearch(searchTerm);
-  };
 
   return (
     <Grid container sx={styles.container}>
@@ -51,16 +47,12 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
           onChange={(e) => {
             setSearchTerm(e.target.value);
           }}
-          onKeyUp={handleSearch}
+          onKeyUp={onSearch}
           sx={styles.searchField}
         />
       </Grid>
       <Grid item>
-        <IconButton
-          aria-label="search"
-          sx={styles.searchBtn}
-          onClick={handleSearch}
-        >
+        <IconButton aria-label="search" sx={styles.searchBtn}>
           <SearchIcon sx={{ fontSize: "1rem" }} />
         </IconButton>
       </Grid>
